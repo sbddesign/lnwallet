@@ -1,0 +1,31 @@
+# -------------------------
+# Core Gradle / Kotlin
+# -------------------------
+.gradle/
+**/build/
+out/
+# Kotlin compiler caches (safe to ignore)
+.kotlin/
+**/.kotlin/
+# Kotlin/Native local caches sometimes appear in project roots
+.konan/
+
+# Keep the Gradle Wrapper in Git
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+!gradlew
+!gradlew.bat
+!gradle/
+
+# -------------------------
+# IDEs (IntelliJ / Android Studio / Xcode)
+# -------------------------
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# macOS
+.DS_Store
+
+# -----------------------
