@@ -1,0 +1,10 @@
+---
+description: iOS App Dev
+globs:
+alwaysApply: true
+---
+
+- This is an iOS app using SwiftUI
+- Minimum iOS version: 15.0
+- Uses orange-sdk Swift bindings from local path
+- Follow iOS design guidelines and Swift best practices
