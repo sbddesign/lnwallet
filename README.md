@@ -1,48 +1,104 @@
-This is a Kotlin Multiplatform project targeting Android, iOS, Desktop (JVM).
+# LnWallet - Kotlin Multiplatform Project
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
+This is a Kotlin Multiplatform project with **shared UI and business logic** targeting Android, iOS, and Desktop (JVM).
 
-* [/iosApp](./iosApp/iosApp) contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+## ✨ Key Features
 
-### Build and Run Android Application
+- **Single Codebase**: All UI and business logic is written once in Kotlin and Compose Multiplatform
+- **Native Performance**: Compiles to native code on each platform
+- **Consistent Experience**: The same app runs identically on iOS, Android, and Desktop
 
-To build and run the development version of the Android app, use the run configuration from the run widget
-in your IDE’s toolbar or build it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:assembleDebug
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:assembleDebug
-  ```
+## 📁 Project Structure
 
-### Build and Run Desktop (JVM) Application
+### `/composeApp` - Shared Code (Edit Here!)
 
-To build and run the development version of the desktop app, use the run configuration from the run widget
-in your IDE’s toolbar or run it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:run
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:run
-  ```
+This is where **all your UI and business logic** lives:
 
-### Build and Run iOS Application
+- **[commonMain](./composeApp/src/commonMain/kotlin)** - Code shared across ALL platforms
+    - `App.kt` - Main UI written in Compose Multiplatform
+    - `Greeting.kt` - Example business logic
+    - This is where you'll spend most of your time developing!
 
-To build and run the development version of the iOS app, use the run configuration from the run widget
-in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+- **[iosMain](./composeApp/src/iosMain/kotlin)** - iOS-specific code (rarely needed)
+- **[androidMain](./composeApp/src/androidMain/kotlin)** - Android-specific code (rarely needed)
+- **[jvmMain](./composeApp/src/jvmMain/kotlin)** - Desktop-specific code (rarely needed)
 
----
+### `/iosApp` - iOS App Wrapper
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+Contains the minimal iOS app that displays the shared Compose UI. You rarely need to edit this.
+See [iosApp/README.md](./iosApp/README.md) for more details.
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **For Android/Desktop**: Java 17+ (check with `java -version`)
+- **For iOS**: macOS with Xcode installed
+
+### Build and Run
+
+#### Android Application
+
+From the terminal:
+
+```shell
+./gradlew :composeApp:assembleDebug
+```
+
+Or use the Android run configuration in your IDE (Android Studio/IntelliJ IDEA).
+
+#### Desktop (JVM) Application
+
+From the terminal:
+
+```shell
+./gradlew :composeApp:run
+```
+
+Or use the Desktop run configuration in your IDE.
+
+#### iOS Application
+
+Open `/iosApp/iosApp.xcodeproj` in Xcode and click Run, or use the iOS run configuration in your IDE.
+
+The iOS app automatically builds the Kotlin framework during the Xcode build process.
+
+## 🎨 Making Changes
+
+### Modify the UI
+
+Edit `composeApp/src/commonMain/kotlin/sbddesign/lnwallet/project/App.kt` - changes apply to **all platforms**
+automatically!
+
+### Add Business Logic
+
+Add new Kotlin files to `composeApp/src/commonMain/kotlin/` - accessible from **all platforms**.
+
+### Platform-Specific Code
+
+Only when needed, add platform-specific code to:
+
+- `iosMain/` for iOS-only features
+- `androidMain/` for Android-only features
+- `jvmMain/` for Desktop-only features
+
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────┐
+│   Compose Multiplatform UI          │
+│   (commonMain/App.kt)               │
+│   Written once, runs everywhere!    │
+└─────────────────────────────────────┘
+            ↓         ↓         ↓
+    ┌───────────┐ ┌──────┐ ┌─────────┐
+    │    iOS    │ │ Android│ │ Desktop │
+    │  Native   │ │ Native │ │   JVM   │
+    └───────────┘ └────────┘ └─────────┘
+```
+
+## 📚 Learn More
+
+- [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)
+- [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
+- [iOS Integration Guide](./iosApp/README.md)
