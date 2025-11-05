@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -215,6 +215,9 @@
 				Base,
 			);
 			mainGroup = D9480EC12EBBF49300C34ACD;
+			packageReferences = (
+				D9480EF72EBBF8BA00C34ACD /* XCLocalSwiftPackageReference "../../../lightningdevkit/orange-sdk/bindings/swift" */,
+			);
 			productRefGroup = D9480ECB2EBBF49300C34ACD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -588,6 +591,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		D9480EF72EBBF8BA00C34ACD /* XCLocalSwiftPackageReference "../../../lightningdevkit/orange-sdk/bindings/swift" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../lightningdevkit/orange-sdk/bindings/swift";
+		};
+/* End XCLocalSwiftPackageReference section */
 	};
 	rootObject = D9480EC22EBBF49300C34ACD /* Project object */;
 }
